@@ -58,16 +58,16 @@ const handleSubmit = (e) => {
   if (!e.target.checkValidity()) {
   e.preventDefault();
   analyze()
-  axios.post('https://monza-url-shortener.herokuapp.com/api/shorten', {
+  axios.post('https://monza-url.herokuapp.com/api/shorten', {
     active: false,
     url: `https://${state.url}`
   })
     .then( res => {
       if(validata){
         setState({
-          link: `https://monza-url-shortener.herokuapp.com/${res.data.hash}`,
+          link: `https://monza-url.herokuapp.com/${res.data.hash}`,
           active: true,
-          url: `https://monza-url-shortener.herokuapp.com/${res.data.hash}`
+          url: `https://monza-url.herokuapp.com/${res.data.hash}`
         })
       } else {
           setState({
@@ -81,15 +81,15 @@ const handleSubmit = (e) => {
     } else {
         e.preventDefault();
         analyze()
-        axios.post('https://monza-url-shortener.herokuapp.com/api/shorten', {
+        axios.post('https://monza-url.herokuapp.com/api/shorten', {
         url: state.url,
         active: false,
     })
       .then( res => {
         setState({
-          link: `https://monza-url-shortener.herokuapp.com/${res.data.hash}`,
+          link: `https://monza-url.herokuapp.com/${res.data.hash}`,
           active: true,
-          url: `https://monza-url-shortener.herokuapp.com/${res.data.hash}`
+          url: `https://monza-url.herokuapp.com/${res.data.hash}`
         })
       })
       .then((res) => console.log(res.data))
